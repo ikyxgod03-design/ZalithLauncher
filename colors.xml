@@ -1,37 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black_or_white">#FFFFFF</color>
-    <color name="background_app">#0F0B1E</color>
-    <color name="background_app_error">#431A1A</color>
-    <color name="background_overlay">#1E1638</color>
-    <color name="background_status_bar">#0B0816</color>
-    <color name="background_menu_top">#140E2A</color>
-    <color name="background_menu_top_error">#E62E0909</color>
-    <color name="background_menu_element">#7C3AED</color>
-    <color name="background_ripple_effect">#A78BFA</color>
-    <color name="button_background">#5B2FC9</color>
-    <color name="button_background_selected">#7C3AED</color>
-    <color name="dialog_background">#17112E</color>
-    <color name="menu_bar">#8B7BC8</color>
-    <color name="menu_bar_text">#FFFFFF</color>
-    <color name="menu_overlay">#E6120C24</color>
-    <color name="menu_progress">#8B5CF6</color>
-    <color name="background_item">#E61C1536</color>
-    <color name="background_item_selected">#F02B2058</color>
-    <color name="background_item_disabled">#D8452828</color>
-    <color name="background_sponsor_intermediate">#80BD6C2D</color>
-    <color name="background_sponsor_advanced">#80B83C1F</color>
-    <color name="edit_box_fill">#2A2145</color>
-    <color name="edit_box_fill_selected">#3B2E66</color>
-    <color name="mod_category_fill">#80221A3D</color>
-    <color name="text_background_fill">#B3261D45</color>
-    <color name="settings_category">#A78BFA</color>
-    <color name="favorite_color">#FA7C7C</color>
-    <color name="icon_color">#FFFFFF</color>
-    <color name="primary_text">#FFFFFF</color>
-    <color name="kyros_accent">#8B5CF6</color>
-    <color name="kyros_stroke">#4D8B5CF6</color>
-    <color name="kyros_green">#4ADE80</color>
+    <color name="kyros_bg">#0F0B1A</color>
+    <!-- Semi-transparan supaya background pixel art tembus -->
+    <color name="kyros_sidebar">#CC0B0813</color>
+    <color name="kyros_card">#D9171226</color>
+    <color name="kyros_card_selected">#2B1B55</color>
+    <color name="kyros_border">#2A2145</color>
+    <color name="kyros_purple">#7C3AED</color>
+    <color name="kyros_purple_dark">#5B21B6</color>
+    <color name="kyros_purple_light">#A855F7</color>
     <color name="kyros_blue">#3B82F6</color>
-    <color name="kyros_orange">#F59E0B</color>
+    <color name="kyros_green">#22C55E</color>
+    <color name="kyros_yellow">#F5A623</color>
+    <color name="kyros_text">#FFFFFF</color>
+    <color name="kyros_text_dim">#9A94B0</color>
 </resources>

@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Kyros Launcher - layout utama (landscape) -->
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/kyros_bg">
+
+    <!-- ===================== BACKGROUND PIXEL ART ===================== -->
+    <!-- Taruh gambarnya di res/drawable-nodpi/bg_home_night.png (bulan, Enderman, pohon) -->
+    <ImageView
+        android:id="@+id/bgImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_home_night"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Lapisan gelap tipis supaya teks tetap terbaca -->
+    <View
+        android:id="@+id/bgOverlay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_overlay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ===================== SIDEBAR ===================== -->
+    <LinearLayout
+        android:id="@+id/sidebar"
+        android:layout_width="76dp"
+        android:layout_height="0dp"
+        android:background="@color/kyros_sidebar"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        app:layout_constraintBottom_toTopOf="@id/statusBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="12dp"
+            android:contentDescription="@string/app_name"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/navHome"
+            style="@style/Kyros.NavItem"
+            android:background="@drawable/bg_nav_selected"
+            android:drawableTint="@color/kyros_text"
+            android:drawableTop="@drawable/ic_home"
+            android:text="Home"
+            android:textColor="@color/kyros_text" />
+
+        <TextView
+            android:id="@+id/navSettings"
+            style="@style/Kyros.NavItem"
+            android:drawableTop="@drawable/ic_settings"
+            android:text="Settings" />
+
+        <TextView
+            android:id="@+id/navThemes"
+            style="@style/Kyros.NavItem"
+            android:drawableTop="@drawable/ic_palette"
+            android:text="Themes" />
+
+        <TextView
+            android:id="@+id/navMods"
+            style="@style/Kyros.NavItem"
+            android:drawableTop="@drawable/ic_cube"
+            android:text="Mods" />
+
+        <TextView
+            android:id="@+id/navLogs"
+            style="@style/Kyros.NavItem"
+            android:drawableTop="@drawable/ic_folder"
+            android:text="Logs" />
+
+        <TextView
+            android:id="@+id/navAbout"
+            style="@style/Kyros.NavItem"
+            android:drawableTop="@drawable/ic_info"
+            android:text="About" />
+    </LinearLayout>
+
+    <!-- ===================== HEADER ===================== -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@id/accountPanel"
+        app:layout_constraintStart_toEndOf="@id/sidebar"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kyros Launcher"
+            android:textColor="@color/kyros_text"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Play Minecraft, Your Way!"
+            android:textColor="@color/kyros_text_dim"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <!-- ===================== KONTEN TENGAH ===================== -->
+    <ScrollView
+        android:id="@+id/content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="12dp"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@id/statusBar"
+        app:layout_constraintEnd_toStartOf="@id/accountPanel"
+        app:layout_constraintStart_toEndOf="@id/sidebar"
+        app:layout_constraintTop_toBottomOf="@id/header">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="12dp">
+
+            <!-- Banner sambutan -->
+            <LinearLayout
+                android:id="@+id/welcomeBanner"
+                android:layout_width="match_parent"
+                android:layout_height="96dp"
+                android:background="@drawable/bg_card_accent"
+                android:orientation="horizontal"
+                android:padding="2dp">
+
+                <ImageView
+                    android:id="@+id/bannerImage"
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@null"
+                    android:scaleType="centerCrop"
+                    tools:background="#334" />
+
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="52dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="14dp"
+                    android:background="@color/kyros_purple" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingStart="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Welcome to"
+                        android:textColor="@color/kyros_text"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/bannerTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kyros Launcher"
+                        android:textColor="@color/kyros_purple_light"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Let's start your Minecraft adventure!"
+                        android:textColor="@color/kyros_text_dim"
+                        android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Quick Actions header -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_cube_small"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:text="Quick Actions"
+                    android:textColor="@color/kyros_text"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/quickSeeAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="See All  →"
+                    android:textColor="@color/kyros_purple_light"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <!-- Quick Actions kartu -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <LinearLayout
+                    android:id="@+id/qaLaunch"
+                    style="@style/Kyros.QuickCard">
+
+                    <ImageView
+                        style="@style/Kyros.QuickIcon"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_play"
+                        app:tint="@color/kyros_purple_light" />
+
+                    <TextView
+                        style="@style/Kyros.QuickText"
+                        android:text="Launch Game" />
+
+                    <View
+                        style="@style/Kyros.QuickLine"
+                        android:background="@color/kyros_purple" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/qaInstances"
+                    style="@style/Kyros.QuickCard">
+
+                    <ImageView
+                        style="@style/Kyros.QuickIcon"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_download"
+                        app:tint="@color/kyros_blue" />
+
+                    <TextView
+                        style="@style/Kyros.QuickText"
+                        android:text="Manage\nInstances" />
+
+                    <View
+                        style="@style/Kyros.QuickLine"
+                        android:background="@color/kyros_blue" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/qaMods"
+                    style="@style/Kyros.QuickCard">
+
+                    <ImageView
+                        style="@style/Kyros.QuickIcon"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_puzzle"
+                        app:tint="@color/kyros_green" />
+
+                    <TextView
+                        style="@style/Kyros.QuickText"
+                        android:text="Mods" />
+
+                    <View
+                        style="@style/Kyros.QuickLine"
+                        android:background="@color/kyros_green" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/qaGameDir"
+                    style="@style/Kyros.QuickCard">
+
+                    <ImageView
+                        style="@style/Kyros.QuickIcon"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_folder"
+                        app:tint="@color/kyros_yellow" />
+
+                    <TextView
+                        style="@style/Kyros.QuickText"
+                        android:text="Game Directory" />
+
+                    <View
+                        style="@style/Kyros.QuickLine"
+                        android:background="@color/kyros_yellow" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Latest News header -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_news"
+                    android:drawablePadding="8dp"
+                    android:gravity="center_vertical"
+                    android:text="Latest News"
+                    android:textColor="@color/kyros_text"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/newsViewAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="View All  →"
+                    android:textColor="@color/kyros_purple_light"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <!-- Kartu berita -->
+            <LinearLayout
+                android:id="@+id/newsCard"
+                android:layout_width="match_parent"
+                android:layout_height="84dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_card"
+                android:orientation="horizontal"
+                android:padding="1dp">
+
+                <ImageView
+                    android:id="@+id/newsImage"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@null"
+                    android:scaleType="centerCrop"
+                    tools:background="#334" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="10dp">
+
+                    <TextView
+                        android:id="@+id/newsTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Welcome to Kyros Launcher!"
+                        android:textColor="@color/kyros_text"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/newsDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="A better, faster, and more beautiful launcher for your Minecraft journey."
+                        android:textColor="@color/kyros_text_dim"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/newsDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:drawableStart="@drawable/ic_calendar"
+                        android:drawablePadding="6dp"
+                        android:text="Nov 16, 2026"
+                        android:textColor="@color/kyros_text_dim"
+                        android:textSize="10sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- ===================== PANEL AKUN (KANAN) ===================== -->
+    <LinearLayout
+        android:id="@+id/accountPanel"
+        android:layout_width="230dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/bg_card"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="14dp"
+        app:layout_constraintBottom_toTopOf="@id/statusBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="84dp"
+            android:layout_height="84dp"
+            android:background="@drawable/bg_avatar"
+            android:contentDescription="@string/app_name"
+            android:padding="2dp"
+            android:scaleType="fitCenter"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="ikySky"
+            android:textColor="@color/kyros_text"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/accountType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ex: by"
+            android:textColor="@color/kyros_purple_light"
+            android:textSize="11sp"
+            android:textStyle="italic" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/kyros_border" />
+
+        <!-- Versi / instance terpilih -->
+        <LinearLayout
+            android:id="@+id/versionRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_kyros_logo" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/instanceName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kyros Launcher"
+                    android:textColor="@color/kyros_text"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/instanceVersion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="v1.0.0 - Fabric 0.20.1"
+                    android:textColor="@color/kyros_text_dim"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/btnInstanceSettings"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:contentDescription="@string/app_name"
+                android:padding="4dp"
+                android:src="@drawable/ic_settings"
+                app:tint="@color/kyros_text_dim" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <!-- Tombol Launch -->
+        <TextView
+            android:id="@+id/btnLaunch"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@drawable/bg_btn_launch"
+            android:drawableStart="@drawable/ic_play"
+            android:drawablePadding="8dp"
+            android:drawableTint="@color/kyros_text"
+            android:gravity="center"
+            android:paddingStart="40dp"
+            android:paddingEnd="40dp"
+            android:text="Launch Game"
+            android:textColor="@color/kyros_text"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- ===================== STATUS BAR BAWAH ===================== -->
+    <LinearLayout
+        android:id="@+id/statusBar"
+        android:layout_width="0dp"
+        android:layout_height="28dp"
+        android:background="@color/kyros_sidebar"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <View
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:background="@drawable/bg_dot_green" />
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:text="Ready to play!"
+            android:textColor="@color/kyros_text"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/btnDiscord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_discord"
+            android:drawablePadding="6dp"
+            android:text="Join our Discord"
+            android:textColor="@color/kyros_text_dim"
+            android:textSize="11sp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:background="@color/kyros_border" />
+
+        <TextView
+            android:id="@+id/btnBrand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_crown"
+            android:drawablePadding="6dp"
+            android:text="Kyros Launcher"
+            android:textColor="@color/kyros_text_dim"
+            android:textSize="11sp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
